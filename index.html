@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+      color: #000000;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(to right, #f0f0f0, #444);
+      color: #000000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .nav a:hover {
+      color: #fb9d06;
+    }
+    .hero {
+      background: url("https://i.pinimg.com/736x/b0/1e/3c/b01e3c6af39649ca7c2042948221bcd5.jpg");
+      height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero div {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin: 10px 0 20px;
+    }
+    .hero button {
+      background-color: #f39c12;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .hero button:hover {
+      background-color: #e67e22;
+      transform: scale(1.05);
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 50px;
+      background-color: #fff;
+    }
+    .product-item {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #f9f9f9;
+    }
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    .product-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+    .product-item img:hover {
+      transform: scale(1.05);
+    }
+    .product-item h3 {
+      margin: 10px 0;
+      font-size: 1.4rem;
+      color: #333;
+    }
+    .product-item p {
+      color: #777;
+      font-size: 1.1rem;
+    }
+    .product-item button {
+      background-color: #f39c12;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .product-item button:hover {
+      background-color: #e67e22;
+      transform: scale(1.05);
+    }
+    .about {
+      padding: 50px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .about p {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .footer {
+      background: linear-gradient(to right, #222, #444);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Fashion Store</div>
+    <nav class="nav"></nav>
+      <a href="#">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About Us</a>
+      <a href="#" id="contact-btn">Contact</a>
+      <a href="#" id="cart-btn">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Welcome to Fashion Store</h1>
+      <p>Discover the latest trends in fashion and style.</p>
+      <button id="shop-now-btn">Shop Now</button>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about"></section>
+    <h2>About Us</h2>
+    <p>Welcome to fashion store – where style meets simplicity. We bring you the latest fashion trends with a fresh, modern twist. Whether you’re dressing up for a night out or keeping it casual, our curated collection is designed to help you express your unique style. Dive into a world of effortless fashion, bold looks, and everyday essentials—all in one place.
+
+      Want it to sound more premium, streetwear, casual, or something else? Give me a bit more detail and I’ll tweak it to match your brand’s personality.
+      
+      
+      
+      
+      </p>
+  </section>
+
+  <section id="shop" class="products"></section>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Fashion Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let cartCount = 0;
+
+    const products = [
+      { name: "t shirts ", price: "$19.00", image: "https://m.media-amazon.com/images/I/71kIS3RWmuL._SY879_.jpg" },
+      { name: "accesories", price: "$20.00", image: "https://image.hm.com/assets/hm/ab/76/ab76c6c1fe4f02c55f5074a7de587d484d74bf17.jpg?imwidth=1260" },
+      { name: "jacket", price: "$35.00", image: "https://static.zara.net/assets/public/26c6/a9a9/6e074bc09726/bfb861f77141/05030729401-p/05030729401-p.jpg?ts=1737991069803&w=2400" },
+      { name: "jeans", price: "$20.90", image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT_3kwQK2OyabrJxoTR7-0K6OgoV6cryjevXks5fvfWu2Cd5ucLruOZLVEGXMC8wNEkHjoKDxl5IEXga_hEvHVbHZSAcKYb_gInT-ISeSHEbuCI8v1-1iqX" },
+      { name: "saaree", price: "$48.00", image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmwH66UlV1fJndG6BkKiNN7GkKlmiUvwPUH5DvsSyb3ABTIP5wNyzb-Bi5OZChyGTJ5nCAAKcHJmJ_9sVGJwW8AatKZ9cdY5sArZcO2U7q5-n_Eny3gy0C" },
+      { name: "gym wear", price: "$7.90", image: "https://m.media-amazon.com/images/I/61EbmbmgJOL._SX679_.jpg" },
+      { name: "shorts ", price: "$16.00", image: "https://image.hm.com/assets/hm/7c/7b/7c7b1982c433776ae6c4fe3a518cbaa93e6c257a.jpg?imwidth=1260" },
+      { name: "lehenga", price: "$188.00", image: "https://img.perniaspopupshop.com/catalog/product/n/k/NKGC032247_1.jpg?impolicy=detailimageprod" },
+      { name: "shoes ", price: "$190.00", image: "https://www.mytheresa.com/media/1094/1238/100/81/P00360218.jpg" },
+      { name: "watch ", price: "$100.00", image: "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/t/u/tudor-black-bay-m79653-0007-large.jpg" },
+    ];
+
+    const productContainer = document.querySelector('.products');
+
+    products.forEach(product => {
+      const productItem = document.createElement('div');
+      productItem.classList.add('product-item');
+      productItem.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.price}</p>
+        <button class="buy-now">Buy Now</button>
+      `;
+      productContainer.appendChild(productItem);
+    });
+
+    document.querySelectorAll('.buy-now').forEach(button => {
+      button.addEventListener('click', () => {
+        cartCount++;
+        document.getElementById('cart-count').textContent = cartCount;
+        alert('Item added to cart!');
+      });
+    });
+
+    document.getElementById('shop-now-btn').addEventListener('click', () => {
+      document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('contact-btn').addEventListener('click', () => {
+      alert('Contact us at: support@fashionstore.com');
+    });
+
+    document.getElementById('cart-btn').addEventListener('click', () => {
+      alert(`You have ${cartCount} item(s) in your cart.`);
+    });
+  </script>
+</body>
+</html>
